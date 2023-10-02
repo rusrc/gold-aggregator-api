@@ -1,0 +1,11 @@
+ Stop-Service WorkerService_GoldDep –Force -Passthru
+ Stop-Service WorkerService_GoldDergava –Force -Passthru
+ Stop-Service WorkerService_IFK_Pik –Force -Passthru
+ Stop-Service WorkerService_MonetaInvestMsk –Force -Passthru
+ Stop-Service WorkerService_MonetaInvestSpb –Force -Passthru
+ Stop-Service WorkerService_NevaGold –Force -Passthru
+ Stop-Service WorkerService_ZolotoMDRu –Force -Passthru
+ Stop-Service WorkerService_Numizmatik –Force -Passthru
+ Stop-Service WorkerService_Petroinvest –Force -Passthru
+ Stop-Service WorkerService_ZolotoPiterRu –Force -Passthru
+ Stop-Service WorkerService_TroyStandart –Force -Passthru

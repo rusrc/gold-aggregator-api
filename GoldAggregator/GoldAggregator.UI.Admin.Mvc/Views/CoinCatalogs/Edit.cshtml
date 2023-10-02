@@ -1,0 +1,152 @@
+﻿@using GoldAggregator.Parser.Entities.Enums
+@model CoinCatalogViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var similarImagesInFolders = ViewData["SimilarImagesInFolder"] as List<string>;
+}
+
+<h1>Edit</h1>
+
+<h4>CoinCatalog</h4>
+<hr />
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-6">
+
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="SeoUrl" class="control-label"></label>
+                <input asp-for="SeoUrl" class="form-control" />
+                <span asp-validation-for="SeoUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeoTitle" class="control-label"></label>
+                <textarea asp-for="SeoTitle" class="form-control" rows="2"></textarea>
+                <span asp-validation-for="SeoTitle" class="text-danger"></span>
+                <small>До 50 символов</small>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeoDescription" class="control-label"></label>
+                <textarea asp-for="SeoDescription" class="form-control" rows="2"></textarea>
+                <span asp-validation-for="SeoDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeoKeyWords" class="control-label"></label>
+                <textarea asp-for="SeoKeyWords" class="form-control" rows="2"></textarea>
+                <span asp-validation-for="SeoKeyWords" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TranslitName" class="control-label"></label>
+                <input asp-for="TranslitName" class="form-control" />
+                <span asp-validation-for="TranslitName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nomination" class="control-label"></label>
+                <input asp-for="Nomination" class="form-control" />
+                <span asp-validation-for="Nomination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                 <small class="text-info">(В граммах)</small>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MintCountryId" class="control-label"></label>
+                <select asp-for="MintCountryId" class="form-control" asp-items="ViewBag.MintCountryId"></select>
+                <span asp-validation-for="MintCountryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetalType" class="control-label"></label>
+                <select asp-for="MetalType" asp-items="Html.GetEnumSelectList<MetalTypeEnum>()" class="form-control"></select>
+                <span asp-validation-for="MetalType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartMiningYear" class="control-label"></label>
+                <input asp-for="StartMiningYear" class="form-control" />
+                <span asp-validation-for="StartMiningYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndMiningYear" class="control-label"></label>
+                <input asp-for="EndMiningYear" class="form-control" />
+                <span asp-validation-for="EndMiningYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageName" class="control-label"></label>
+                <small class="text-info">(Нельзя редактировать)</small>
+                <input asp-for="ImageName" class="form-control" disabled></input>
+                <span asp-validation-for="ImageName" class="text-danger"></span>
+                
+            </div>
+            
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" asp-for="FileObverse"></label>
+                <input class="form-control" asp-for="FileObverse" type="file" name="FileObverse" value="upload" />
+            </div>
+            <br />
+            <div class="form-group">
+                <label class="control-label" asp-for="FileReverse"></label>
+                <input class="form-control" asp-for="FileReverse" type="file" name="FileReverse" value="upload" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-block btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<br />
+
+<div class="row">
+    @if (similarImagesInFolders?.Any() ?? false)
+    {
+        foreach (var similarImagesInFolder in similarImagesInFolders)
+        {
+            <form asp-action="DeleteImage" asp-controller="CoinCatalogs" method="post" class="border border-1 p-1 mb-1">
+
+                <input type="hidden" name="filePath" value="@similarImagesInFolder" />
+                <input type="hidden" name="id" value="@Model.Id" />
+                <input class="btn btn-danger d-inline-block" type="submit" value="Delete image" />
+                <div class="d-inline-block">@(similarImagesInFolder)</div>
+            </form>
+        }
+    }
+    else
+    {
+        <p class="text-danger">Фото не найдены</p>
+    }
+
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

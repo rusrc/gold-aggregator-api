@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "GoldAggregator.Parser.WorkerService.MonetaInvestSpb": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

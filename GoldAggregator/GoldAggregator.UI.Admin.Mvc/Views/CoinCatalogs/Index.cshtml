@@ -1,0 +1,132 @@
+﻿@model IEnumerable<CoinCatalogViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Каталог (Монеты)</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<div class="table-responsive">
+    <table class="table table-sm table-striped">
+        <thead class="_table-dark">
+            <tr>
+                <th></th>
+                <th>
+                    <a class="link-dark" asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParam"]">
+                        @Html.DisplayNameFor(model => model.Id)
+                    </a>
+                </th>
+                <th>
+                    Фото
+                </th>
+                <th>
+                    <a class="link-dark" asp-action="Index" asp-route-sortOrder="@ViewData["MetalTypeParm"]">
+                        @Html.DisplayNameFor(model => model.MetalType) 
+                    </a>
+                </th>
+                <th>
+                    <a class="link-dark" asp-action="Index" asp-route-sortOrder="@ViewData["WeightParm"]">
+                        @Html.DisplayNameFor(model => model.Weight) 
+                    </a>
+                </th>
+                <th>
+                    <a class="link-dark" asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </a>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MintCountryName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SeoUrl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SeoTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SeoDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SeoKeyWords)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TranslitName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nomination)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartMiningYear)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EndMiningYear)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="width: 60px;">
+                        <a class="link-dark" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="link-dark" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a class="link-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        <img class="img-thumbnail mb-1" src="@("https://goldkatalog.ru/assets/coins/" + item?.ImageName + "_obverse.webp")" style="max-height: 50px; background-color: #f1f1f0;" />
+                        <img class="img-thumbnail mb-0" src="@("https://goldkatalog.ru/assets/coins/" + item?.ImageName + "_reverse.webp")" style="max-height: 50px; background-color: #f1f1f0;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MetalType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Weight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MintCountryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SeoUrl)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SeoTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SeoDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SeoKeyWords)
+                    </td>
+
+                    <td class="text-truncate" style="max-width: 100px;">
+                        @Html.DisplayFor(modelItem => item.TranslitName)
+                    </td>
+                    <td class="text-truncate" style="max-width: 100px;">
+                        @Html.DisplayFor(modelItem => item.Nomination)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartMiningYear)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndMiningYear)
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

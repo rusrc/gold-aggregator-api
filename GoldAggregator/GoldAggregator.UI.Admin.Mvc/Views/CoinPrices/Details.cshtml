@@ -1,0 +1,93 @@
+﻿@model GoldAggregator.Parser.Entities.Entities.CoinPrice
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CoinPrice</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+        <dd class = "col-sm-10">
+        <a href="@Model?.Url">@Model?.Url</a>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PriceToBuy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PriceToBuy)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PriceToBuyPerGram)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PriceToBuyPerGram)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PriceToSell)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PriceToSell)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PriceToSellPerGram)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PriceToSellPerGram)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PriceSpecial)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PriceSpecial)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PriceSpecialPerGram)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PriceSpecialPerGram)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PriceSpecialDetails)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PriceSpecialDetails)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ParseDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ParseDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dealer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dealer.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CoinCatalog)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CoinCatalog.Id)
+        </dd>
+    </dl>
+</div>
+
+<br />
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

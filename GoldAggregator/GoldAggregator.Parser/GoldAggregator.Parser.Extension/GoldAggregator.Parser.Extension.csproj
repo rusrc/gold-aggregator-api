@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\GoldAggregator.Api.Dto\GoldAggregator.Api.Dto.csproj" />
+    <ProjectReference Include="..\..\GoldAggregator.Shared\GoldAggregator.Common\GoldAggregator.Common.csproj" />
+    <ProjectReference Include="..\GoldAggregator.Parcer.Entities\GoldAggregator.Parcer.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dto\" />
+  </ItemGroup>
+
+</Project>

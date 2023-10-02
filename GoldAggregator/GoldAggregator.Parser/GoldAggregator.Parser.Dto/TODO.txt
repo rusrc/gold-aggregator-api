@@ -1,0 +1,1 @@
+﻿Поместить в общий проект GoldAggregator.Dto и в подпапку Parser

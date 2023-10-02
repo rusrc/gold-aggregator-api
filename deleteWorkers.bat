@@ -1,0 +1,11 @@
+sc delete WorkerService_GoldDep
+sc delete WorkerService_GoldDergava
+sc delete WorkerService_IFK_Pik
+sc delete WorkerService_MonetaInvestMsk
+sc delete WorkerService_MonetaInvestSpb
+sc delete WorkerService_NevaGold
+sc delete WorkerService_ZolotoMDRu
+sc delete WorkerService_Numizmatik
+sc delete WorkerService_Petroinvest
+sc delete WorkerService_ZolotoPiterRu
+sc delete WorkerService_TroyStandart

@@ -1,0 +1,2 @@
+﻿TODO rename this project with namespace "GoldAggregator.Parser.Extension" to GoldAggregator.Extension
+And put somewhere in GoldAggregator.Infrastructure

@@ -1,0 +1,151 @@
+﻿@model PaginatedList<GoldAggregator.Parser.Entities.Entities.CoinPrice>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Не слинкованные цены (монеты)</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-secondary @prevDisabled">
+    <span>Назад</span>
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-secondary @nextDisabled">
+    <span>Вперед</span>
+</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Dealer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Error)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].CoinCatalog)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].PriceToBuy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].PriceToBuyPerGram)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].PriceToSell)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].PriceToSellPerGram)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].PriceSpecial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].PriceSpecialPerGram)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].PriceSpecialDetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].ParseDate)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>                 
+                     <a href="@(item.Url)">@Html.DisplayFor(modelItem => item.Url)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dealer.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Error)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoinCatalog.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceToBuy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceToBuyPerGram)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceToSell)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceToSellPerGram)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceSpecial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceSpecialPerGram)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceSpecialDetails)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParseDate)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    }
+
+    <a asp-action="Index"
+    asp-route-sortOrder="@ViewData["CurrentSort"]"
+    asp-route-pageNumber="@(Model.PageIndex - 1)"
+    asp-route-currentFilter="@ViewData["CurrentFilter"]"
+    class="btn btn-default @prevDisabled">
+    Previous
+    </a>
+    <a asp-action="Index"
+    asp-route-sortOrder="@ViewData["CurrentSort"]"
+    asp-route-pageNumber="@(Model.PageIndex + 1)"
+    asp-route-currentFilter="@ViewData["CurrentFilter"]"
+    class="btn btn-default @nextDisabled">
+    Next
+    </a>*@
+

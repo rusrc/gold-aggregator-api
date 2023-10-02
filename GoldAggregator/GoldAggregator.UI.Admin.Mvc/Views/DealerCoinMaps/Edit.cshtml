@@ -1,0 +1,51 @@
+﻿@model GoldAggregator.Parser.Entities.Entities.DealerCoinMap
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>DealerCoinMap</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="MatchedTitle" class="control-label"></label>
+                <input asp-for="MatchedTitle" class="form-control" />
+                <span asp-validation-for="MatchedTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Url" class="control-label"></label>
+                <input asp-for="Url" class="form-control" />
+                <span asp-validation-for="Url" class="text-danger"></span>
+                <a href="@Model?.Url">@Model?.Url</a>
+            </div>
+            <div class="form-group">
+                <label asp-for="DealerId" class="control-label"></label>
+                <select asp-for="DealerId" class="form-control" asp-items="ViewBag.DealerId"></select>
+                <span asp-validation-for="DealerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoinFromCatalogId" class="control-label"></label>
+                <select asp-for="CoinFromCatalogId" class="form-control" asp-items="ViewBag.CoinFromCatalogId"></select>
+                <span asp-validation-for="CoinFromCatalogId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

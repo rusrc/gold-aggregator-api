@@ -1,0 +1,43 @@
+﻿@model GoldAggregator.Parser.Entities.Entities.DealerCoinMap
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>DealerCoinMap</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MatchedTitle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MatchedTitle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+        <dd class = "col-sm-10">
+            <a href="@(Model.Url)">@Html.DisplayFor(model => model.Url)</a>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dealer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dealer.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CoinCatalog)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CoinCatalog.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

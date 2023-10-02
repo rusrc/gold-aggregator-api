@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "GoldAggregator.Parser.WorkerService.IFK_Pik": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+﻿@model GoldAggregator.Parser.Entities.Entities.CoinCatalog
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CoinCatalog</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SeoUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SeoUrl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SeoTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SeoTitle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SeoDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SeoDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SeoKeyWords)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SeoKeyWords)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TranslitName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TranslitName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nomination)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nomination)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetalType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetalType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StartMiningYear)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StartMiningYear)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EndMiningYear)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EndMiningYear)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MintCountry)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MintCountry.Name)
+        </dd>
+    </dl>
+
+    <div class="row g-3">
+
+        @{
+            var postfixes = new[] { "_obverse.webp", "_obverse.png", "_reverse.webp", "_reverse.png" };
+        }
+
+        @foreach (var postfix in postfixes)
+        {
+            <div class="col-12 col-sm-3 col-xl-2 p-1">
+
+                <div class="card">
+                    <a target="_blank" href="@("https://goldkatalog.ru/assets/coins/" + Model?.ImageName + postfix)">
+                        <img class="card-img-top img-fluid img-thumbnail rounded" style="background-color: #f1f1f0" src="@("https://goldkatalog.ru/assets/coins/" + Model?.ImageName + postfix)" />
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Формат .@postfix</h5>
+                        <a href="#" class="card-link link-danger">Удалить</a>
+                        @*<a href="#" class="card-link">Another link</a>*@
+                    </div>
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>
+<div class="mt-3 mb-3">
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<style>
+    .well {
+        background-color: lightslategray;
+    }
+</style>
+

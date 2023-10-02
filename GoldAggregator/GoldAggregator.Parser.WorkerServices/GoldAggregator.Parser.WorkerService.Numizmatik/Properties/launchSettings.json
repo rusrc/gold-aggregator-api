@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "GoldAggregator.Parser.WorkServices.Numizmatik": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

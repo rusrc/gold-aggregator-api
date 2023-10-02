@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GoldAggregator.Parser.Dto\GoldAggregator.Parser.Dto.csproj" />
+    <ProjectReference Include="..\GoldAggregator.Parser.Exceptions\GoldAggregator.Parser.Exceptions.csproj" />
+    <ProjectReference Include="..\GoldAggregator.Parser.Logger\GoldAggregator.Parser.Logger.csproj" />
+    <ProjectReference Include="..\GoldAggregator.Parser.Services\GoldAggregator.Parser.Services.csproj" />
+  </ItemGroup>
+
+</Project>
